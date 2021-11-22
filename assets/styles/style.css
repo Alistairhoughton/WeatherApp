@@ -17,8 +17,9 @@ body {
     display: flex;
     background-color: #0aa3a3;
     border-radius: 50px;
-    margin: 20px;
-    width: 95%;
+    margin: auto;
+    width: 97%;
+    height: 95%;
     flex-direction: row;
     flex-wrap: wrap;
     
