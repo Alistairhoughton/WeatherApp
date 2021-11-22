@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+
+.pageholder {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.maincontainer {
+    display: flex;
+    background-color: #0aa3a3;
+    border-radius: 50px;
+    margin: 20px;
+    width: 95%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    
+   
+
+
+
+}
+
+.listcontainer {
+    float: left;
+    max-width: 20%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(115, 192, 192);
+    border-top-left-radius: inherit;
+    border-bottom-left-radius: inherit;
+    flex-basis: 25%;
+}
+
+.todyacontainer {
+    display: flex;
+    max-height: 400px;
+    padding: 20px;
+    margin: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    border-radius: 15px;
+    background-color: rgb(228, 228, 228);
+    flex-basis: 73%;
+}
+
+.cardholder {
+    display: flex;
+    flex-direction: row;
+    max-width: 1330px;
+}
+
+.card {
+    background-color: indianred;
+    max-height: 350px;
+    max-width: 230px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 10px;
+    align-items:center;
+}
