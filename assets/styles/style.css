@@ -64,7 +64,7 @@ body {
 .card {
     background-color: indianred;
     max-height: 350px;
-    max-width: 230px;
+    max-width: 250px;
     display: flex;
     flex-direction: column;
     padding: 20px;
