@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
     <title>Weather Dashboard</title>
 </head>
 <body>
@@ -13,15 +16,32 @@
     <main class="maincontainer">
 
         <div class="listcontainer">
-                <h1 class="title">Weather Dashboard</h1>   
-            <div class="input container">
-                <input type="text" name="city-input" id="city-input" placeholder="Manchester">
-                <button class="searchbutton">search</button>
+            
+            <h1 class="title">Weather Dashboard</h1>   
+            <div class="listcard">
+
+                <div class="input-container">
+                    <input class="text-area" type="text" name="city-input" id="city-input" placeholder="Manchester">
+                    <button class="searchbutton">search</button>
+                </div>
+
+                <div class="resultscontainer">
+                <button class="place">Liverpool</button>
+               
+                </div>
+
+                <button class="clear">Clear Results</button>
+                
+                
+                
+
+
             </div>
+            
         </div>
 
 
-
+<div class="sendright">
     <div class="todyacontainer">
         <h2 class="todaysheader">Manchester, 22nd November 2021</h2>
         <ul class="mainlistelements">
@@ -101,8 +121,8 @@
                 </ul>
             </div>
         </div>
-
     </div>
+</div>
     
     
     
