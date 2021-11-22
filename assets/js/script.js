@@ -1,13 +1,11 @@
 var apiKey = '7e32574f3f8ef265a11de62bb2b5d0de';
 
+//gets the current day =============================================================================================================
 
 function searchWeatherTest (location) {
     var inputArea = document.querySelector('#city-input').value;
     var cityLocation = inputArea
-    var searchbtn = document.querySelector('#searchbutton')
-
-
-    // api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+    var searchbtn = document.querySelector('#searchbutton');
     
     fetch
     ( `https://api.openweathermap.org/data/2.5/weather?q=${cityLocation}&units=metric&appid=${apiKey}`)
@@ -15,13 +13,18 @@ function searchWeatherTest (location) {
         return response.json()
     }).then(function (data){
         console.log('weather object ',data)
+        document.querySelector('.cityinner').innerHTML=data.name
 
         var lat = data.coord.lat
         var lon =data.coord.lon
         renderWeather(lat, lon);
+
+        
         
     })
 } 
+
+// gets the 5 day fore cast =======================================================================================================
 
 function renderWeather (lat, lon) {
   
