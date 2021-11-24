@@ -18,9 +18,23 @@ function searchWeatherTest(location) {
       var cityName = (document.querySelector(".cityinner").innerHTML =
       data.name);
       
+      
+      // ============================ testing storage function
       localStorage.setItem('cityName', cityName);
       
-      
+      function setArray () {
+        let cityArr = [];
+        cityArr.push(cityName);
+        console.log(cityArr);
+      }
+      setArray ()
+      // localStorage.setItem('cityListArray', JSON.stringify(cityArr));
+      // let cityArrLs = JSON.parse(localStorage.getItem('cityListArray'));
+      // cityArrLs.push(cityName);
+      // localStorage.setItem('cityListArray', JSON.stringify(cityArrLs));
+
+
+      // ===============================================================
       
         var lat = data.coord.lat;
         var lon = data.coord.lon;
@@ -31,6 +45,7 @@ function searchWeatherTest(location) {
         document.querySelector(".resultscontainer").appendChild(historyBtn);
         var savedSearch = localStorage.getItem("cityName");
         historyBtn.textContent = savedSearch;
+        
       });
       
       
