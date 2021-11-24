@@ -44,6 +44,16 @@ function renderWeather (lat, lon) {
         document.querySelector('.currentWind').textContent='Windspeed: ' + data.current.wind_speed + 'M/s';
         document.querySelector('.currentHumid').textContent='Humidity: ' + data.current.humidity + '%';
         document.querySelector('.currentUV').textContent='UV Index: ' + data.current.uvi;
+        document.querySelector('.currentDate').innerHTML=' ' +data.current.dt;
+
+        var time = moment(1382086394000).format("DD-MM-YYYY h:mm:ss");
+        
+        // var icon = document.createElement('img')
+        // icon.setAttribute('src',`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png` )
+        // document.querySelector('.iconf1').appendChild(icon);
+        // document.querySelector('.tempf1').textContent='Temperature: ' + data.current.temp + ' ℃';
+        // document.querySelector('.windf1').textContent='Windspeed: ' + data.current.wind_speed + 'M/s';
+        // document.querySelector('.humidf1').textContent='Humidity: ' + data.current.humidity + '%';
         
         
     })
