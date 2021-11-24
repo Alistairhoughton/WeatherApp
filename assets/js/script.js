@@ -6,41 +6,37 @@ function searchWeatherTest(location) {
   var inputArea = document.querySelector("#city-input").value;
   var cityLocation = inputArea;
   var searchbtn = document.querySelector("#searchbutton");
-
+  
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityLocation}&units=metric&appid=${apiKey}`
-  )
+    )
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log("weather object ", data);
       var cityName = (document.querySelector(".cityinner").innerHTML =
-        data.name);
-        
-        localStorage.setItem('cityName', cityName);
-        
+      data.name);
+      
+      localStorage.setItem('cityName', cityName);
+      
+      
+      
         var lat = data.coord.lat;
         var lon = data.coord.lon;
         renderWeather(lat, lon);
         
+        var historyBtn = document.createElement("button");
+        historyBtn.classList.add("place");
+        document.querySelector(".resultscontainer").appendChild(historyBtn);
+        var savedSearch = localStorage.getItem("cityName");
+        historyBtn.textContent = savedSearch;
       });
+      
+      
+      
   }
   
-  // ==================================================================================================================================
-  
-  // ==================================================================== function to create button might have to be in the first function?
-  
-  // need to put in local storage =======================================================================================================
-
-  function createBtnList() {
-      var historyBtn = document.createElement("button");
-      historyBtn.classList.add("place");
-      document.querySelector(".resultscontainer").appendChild(historyBtn);
-      var savedSearch = localStorage.getItem("cityName");
-      historyBtn.textContent = savedSearch;
-    }
-
   // gets the 5 day fore cast =======================================================================================================
 
 function renderWeather(lat, lon) {
@@ -74,6 +70,7 @@ function renderWeather(lat, lon) {
 
       // ====================================================================================================== update to forecast not current days
 
+      
       // var icon = document.createElement('img')
       // icon.setAttribute('src',`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png` )
       // document.querySelector('.iconf1').appendChild(icon);
@@ -89,7 +86,7 @@ function clearstorage () {
     localStorage.clear()
     window.location.reload();
   }
-  
+
 document.querySelector("#searchbutton").addEventListener("click", searchWeatherTest);
 document.querySelector('#clear').addEventListener('click', clearstorage)
 
