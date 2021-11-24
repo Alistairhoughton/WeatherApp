@@ -32,6 +32,7 @@ function searchWeatherTest(location) {
   // ==================================================================== function to create button might have to be in the first function?
   
   // need to put in local storage =======================================================================================================
+
   function createBtnList() {
       var historyBtn = document.createElement("button");
       historyBtn.classList.add("place");
@@ -40,11 +41,7 @@ function searchWeatherTest(location) {
       historyBtn.textContent = savedSearch;
     }
 
-
-  
-  
-
-// gets the 5 day fore cast =======================================================================================================
+  // gets the 5 day fore cast =======================================================================================================
 
 function renderWeather(lat, lon) {
   fetch(
@@ -88,5 +85,11 @@ function renderWeather(lat, lon) {
     });
 }
 
+function clearstorage () {
+    localStorage.clear()
+    window.location.reload();
+  }
+  
 document.querySelector("#searchbutton").addEventListener("click", searchWeatherTest);
+document.querySelector('#clear').addEventListener('click', clearstorage)
 
