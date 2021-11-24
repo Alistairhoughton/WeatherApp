@@ -1,212 +1,196 @@
 body {
-    margin: 0;
-    padding: 0;
-    font-size: 16px;
-    box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 400;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
 }
 
 h3 {
-    font-size: 14px;
-    color: rgb(238, 232, 232)
+  font-size: 14px;
+  color: rgb(238, 232, 232);
 }
 
-
 .pageholder {
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .maincontainer {
-    display: flex;
-    background-color: #0aa3a3;
-    border-radius: 50px;
-    margin: auto;
-    width: 97%;
-    height: 95%;
-    flex-direction: row;
-    flex-wrap: wrap;
-    
-   
-
-
-
+  display: flex;
+  background-color: #0aa3a3;
+  border-radius: 50px;
+  margin: auto;
+  width: 97%;
+  height: 95%;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .listcontainer {
-    float: left;
-    max-width: 20%;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    background-color: rgb(115, 192, 192);
-    border-top-left-radius: inherit;
-    border-bottom-left-radius: inherit;
-    flex-basis: 25%;
+  float: left;
+  max-width: 20%;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: rgb(115, 192, 192);
+  border-top-left-radius: inherit;
+  border-bottom-left-radius: inherit;
+  flex-basis: 25%;
 }
 
 .todyacontainer {
-    display: flex;
-    min-height: 400px;
-    padding: 20px;
-    margin: 20px;
-    flex-direction: column;
-    align-items: flex-start;
-    border-radius: 15px;
-    background-color: rgb(115, 192, 192);
-    flex-basis: 73%;
+  display: flex;
+  min-height: 400px;
+  padding: 20px;
+  margin: 20px;
+  flex-direction: column;
+  align-items: flex-start;
+  border-radius: 15px;
+  background-color: rgb(115, 192, 192);
+  flex-basis: 73%;
 }
 
 .cardholder {
-    display: flex;
-    flex-direction: row;
-    max-width: 1360px;
-    margin: 20px;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  max-width: 1360px;
+  margin: 20px;
+  justify-content: space-between;
 }
 
-
 .card {
-    background-color:rgb(115, 192, 192);
-    max-height: 350px;
-    max-width: 250px;
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    border-radius: 15px;
-    text-align: left;
+  background-color: rgb(115, 192, 192);
+  max-height: 350px;
+  max-width: 250px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: left;
 }
 
 .sendright {
-    display: flex;
-    flex-direction: column;
-    width: 75%;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: auto;
 }
 
 .listcard {
-    height: 76.5%;
-    padding: 25px;
-    /* border: solid 1px black; */
-    border-radius: 25px;
-    background-color:rgb(152, 212, 212); 
-    display: flex;
-    flex-direction: column;
+  height: 76.5%;
+  padding: 25px;
+  border-radius: 25px;
+  background-color: rgb(152, 212, 212);
+  display: flex;
+  flex-direction: column;
 }
 
-
-
-
 .cardlistelements {
-    padding: 0px;
+  padding: 0px;
 }
 
 li {
-    padding: 0px;
-    line-height: 2rem;
-    list-style: none;
+  padding: 0px;
+  line-height: 2rem;
+  list-style: none;
 }
 
 h1 {
-    font-size: 1.8rem;
+  font-size: 1.8rem;
 }
 
 .todaysheader {
-    font-size: 1.5rem;
-    padding-left: 10px;
+  font-size: 1.5rem;
+  padding-left: 10px;
 }
 
 .mainlistelements {
-    padding: 0px;
-    padding-left: 10px;
+  padding: 0px;
+  padding-left: 10px;
 }
 
 .title {
-    padding-top: 40px;
+  padding-top: 40px;
 }
 
 .input-container {
-    display: flex;
-    width: 100%;
-    height: 30px;
+  display: flex;
+  width: 100%;
+  height: 30px;
 }
 
 .searchbutton {
-    display: flex;
-    border: none;
-    background-color: rgb(228, 228, 228);
-    color: black;
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    align-items: center;
-    font-family:'Roboto', sans-serif;
-    font-size: 0.8rem;
-    
-  
+  display: flex;
+  border: none;
+  background-color: rgb(228, 228, 228);
+  color: black;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.8rem;
 }
 
 .searchbutton:hover {
-    background-color:lightcoral;
-    cursor: pointer;
-    color: white;
-    
+  background-color: lightcoral;
+  cursor: pointer;
+  color: white;
 }
 
 .text-area {
-    margin: 0;
-    border: none;
-    display: inline-block;
-    outline: none;
-    border-bottom-left-radius: 10px;
-    border-top-left-radius: 10px;
-    padding: 20px;
+  margin: 0;
+  border: none;
+  display: inline-block;
+  outline: none;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 20px;
 }
 
 .place {
-    margin-top: 30px;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    font-family:'Roboto', sans-serif;
-    font-size: 1rem;
-    color: grey;
-    flex-grow: 1;
-
+  margin-top: 30px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  color: grey;
+  flex-grow: 1;
 }
 
 .place:hover {
-    background-color: lightcoral;
-    cursor: pointer;
-    color: white;
+  background-color: lightcoral;
+  cursor: pointer;
+  color: white;
 }
 
 .resultscontainer {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .clear {
-    margin-top: 20px;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    font-family:'Roboto', sans-serif;
-    font-size: 1rem;
-    background-color: #60c1ee;;
-    color: white;
-
+  margin-top: 20px;
+  height: 40px;
+  border-radius: 10px;
+  border: none;
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  background-color: #60c1ee;
+  color: white;
 }
 
 .clear:hover {
-    background-color: lightcoral;
-    color: white;
-    cursor: pointer;
+  background-color: lightcoral;
+  color: white;
+  cursor: pointer;
 }

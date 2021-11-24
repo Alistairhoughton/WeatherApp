@@ -1,139 +1,127 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/styles/style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/styles/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <title>Weather Dashboard</title>
-</head>
-<body>
-    
-<div class="pageholder">
-    <main class="maincontainer">
-
+  </head>
+  <body>
+    <div class="pageholder">
+      <main class="maincontainer">
         <div class="listcontainer">
-            
-            <h1 class="title">Weather Dashboard</h1>   
-            <div class="listcard">
-
-                <div class="input-container">
-                    <input class="text-area" type="text" name="city-input" id="city-input" placeholder="Enter location here">
-                    <button id="searchbutton" class="searchbutton">search</button>
-                </div>
-
-                <div class="resultscontainer">
-                <button class="place">Liverpool</button>
-               
-                </div>
-
-                <button class="clear">Clear Results</button>
-                
-                
-                
-
-
+          <h1 class="title">Weather Dashboard</h1>
+          <div class="listcard">
+            <div class="input-container">
+              <input
+                class="text-area"
+                type="text"
+                name="city-input"
+                id="city-input"
+                placeholder="Enter location here"
+              />
+              <button id="searchbutton" class="searchbutton">search</button>
             </div>
-            
+
+            <div class="resultscontainer">
+              <button class="place">Liverpool</button>
+            </div>
+
+            <button class="clear">Clear Results</button>
+          </div>
         </div>
 
+        <div class="sendright">
+          <div class="todyacontainer">
+            <h2 class="todaysheader">
+              <span class="cityinner"> </span><span class="currentDate"> </span>
+            </h2>
+            <ul class="mainlistelements">
+              <li class="currentIcon"></li>
+              <li class="currentTemp">Temp</li>
+              <li class="currentWind">Wind</li>
+              <li class="currentHumid">Humidity</li>
+              <li class="currentUV">UV index</li>
+            </ul>
+          </div>
 
-<div class="sendright">
-    <div class="todyacontainer">
-        <h2 class="todaysheader"> <span class="cityinner"> </span><span class="currentDate"> </span></h2>
-        <ul class="mainlistelements">
-            <li class="currentIcon"></li>
-            <li class="currentTemp">Temp</li>
-            <li class="currentWind">Wind</li>
-            <li class="currentHumid">Humidity</li>
-            <li class="currentUV">UV index</li>
-        </ul>
+          <div class="cardholder">
+            <div class="card">
+              <h2 class="5dayheader">5 day forecast</h2>
+              <div class="cardstyle">
+                <h3>23rd November 2021</h3>
+                <ul class="cardlistelements">
+                  <li class="iconf1"></li>
+                  <li class="tempf1">Temp</li>
+                  <li class="windf1">Wind</li>
+                  <li class="humidf1">Humidity</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <h2 class="5dayheader">5 day forecast</h2>
+              <div class="cardstyle">
+                <h3>23rd November 2021</h3>
+                <ul class="cardlistelements">
+                  <li>Icon</li>
+                  <li>Temp</li>
+                  <li>Wind</li>
+                  <li>Humidity</li>
+                </ul>
+              </div>
+            </div>
+            <div class="card">
+              <h2 class="5dayheader">5 day forecast</h2>
+              <div class="cardstyle">
+                <h3>23rd November 2021</h3>
+                <ul class="cardlistelements">
+                  <li>Icon</li>
+                  <li>Temp</li>
+                  <li>Wind</li>
+                  <li>Humidity</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <h2 class="5dayheader">5 day forecast</h2>
+              <div class="cardstyle">
+                <h3>23rd November 2021</h3>
+                <ul class="cardlistelements">
+                  <li>Icon</li>
+                  <li>Temp</li>
+                  <li>Wind</li>
+                  <li>Humidity</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card">
+              <h2 class="5dayheader">5 day forecast</h2>
+              <div class="cardstyle">
+                <h3>23rd November 2021</h3>
+                <ul class="cardlistelements">
+                  <li>Icon</li>
+                  <li>Temp</li>
+                  <li>Wind</li>
+                  <li>Humidity</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script src="assets/js/script.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+      </main>
     </div>
-    
-
-    
-    <div class="cardholder">
-
-        <div class="card">
-            <h2 class="5dayheader">5 day forecast</h2>
-            <div class="cardstyle">
-                <h3>23rd November 2021</h3>
-                <ul class="cardlistelements">
-                    <li>Icon</li>
-                    <li>Temp</li>
-                    <li>Wind</li>
-                    <li>Humidity</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2 class="5dayheader">5 day forecast</h2>
-            <div class="cardstyle">
-                <h3>23rd November 2021</h3>
-                <ul class="cardlistelements">
-                    <li class="iconf1">Icon</li>
-                    <li class="tempf1" >Temp</li>
-                    <li class="windf1">Wind</li>
-                    <li class="humidf1">Humidity</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2 class="5dayheader">5 day forecast</h2>
-            <div class="cardstyle">
-                <h3>23rd November 2021</h3>
-                <ul class="cardlistelements">
-                    <li>Icon</li>
-                    <li>Temp</li>
-                    <li>Wind</li>
-                    <li>Humidity</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2 class="5dayheader">5 day forecast</h2>
-            <div class="cardstyle">
-                <h3>23rd November 2021</h3>
-                <ul class="cardlistelements">
-                    <li>Icon</li>
-                    <li>Temp</li>
-                    <li>Wind</li>
-                    <li>Humidity</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="card">
-            <h2 class="5dayheader">5 day forecast</h2>
-            <div class="cardstyle">
-                <h3>23rd November 2021</h3>
-                <ul class="cardlistelements">
-                    <li>Icon</li>
-                    <li>Temp</li>
-                    <li>Wind</li>
-                    <li>Humidity</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-</div>
-    
-    
-    
-    
-    
-    
-    <script src="assets/js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    
-</main>
-</div>
-
-</body>
+  </body>
 </html>
