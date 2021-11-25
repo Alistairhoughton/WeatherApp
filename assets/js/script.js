@@ -7,6 +7,7 @@ function searchWeatherTest(location) {
   var cityLocation = inputArea;
   var searchbtn = document.querySelector("#searchbutton");
   
+  
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityLocation}&units=metric&appid=${apiKey}`
     )
@@ -19,19 +20,17 @@ function searchWeatherTest(location) {
       data.name);
       
       
-      // ============================ testing storage function
-      localStorage.setItem('cityName', cityName);
-      
-      function setArray () {
-        let cityArr = [];
-        cityArr.push(cityName);
-        console.log(cityArr);
-      }
-      setArray ()
-      // localStorage.setItem('cityListArray', JSON.stringify(cityArr));
-      // let cityArrLs = JSON.parse(localStorage.getItem('cityListArray'));
-      // cityArrLs.push(cityName);
-      // localStorage.setItem('cityListArray', JSON.stringify(cityArrLs));
+
+
+      // ============================ storage function
+
+      localStorage.setItem(cityName, cityName)
+
+      // let cityArr = [];
+      // cityArr.push(cityName);
+      // localStorage.setItem(cityName, JSON.stringify(cityName))
+      // let cityArrLs = JSON.parse(localStorage.getItem(cityName))
+      // console.log(localStorage);      
 
 
       // ===============================================================
@@ -43,14 +42,31 @@ function searchWeatherTest(location) {
         var historyBtn = document.createElement("button");
         historyBtn.classList.add("place");
         document.querySelector(".resultscontainer").appendChild(historyBtn);
-        var savedSearch = localStorage.getItem("cityName");
-        historyBtn.textContent = savedSearch;
+        var savedPlace = localStorage.getItem(cityName);
+        historyBtn.textContent = savedPlace;
+
         
+        
+
+        // ================================================== event listener
+        
+        //  var buttonContent = document.querySelector('.place').innerHTML;
+
+        //  console.log(buttonContent);
+
+      
+
+        historyBtn.addEventListener("click", () => { 
+          localStorage.getItem(cityName) ;
+          renderWeather(lat, lon);
+          var cityName = (document.querySelector(".cityinner").innerHTML =
+          data.name);
+        });
+
+        // ================================================== event listener
+
       });
-      
-      
-      
-  }
+}
   
   // gets the 5 day fore cast =======================================================================================================
 
@@ -69,7 +85,10 @@ function renderWeather(lat, lon) {
         "src",
         `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
       );
+      
+      document.querySelector('.currentIcon').removeChild(document.querySelector('.currentIcon').getElementsByTagName('img')[0]);
       document.querySelector(".currentIcon").appendChild(icon);
+
       document.querySelector(".currentTemp").textContent =
         "Temperature: " + data.current.temp + " ℃";
       document.querySelector(".currentWind").textContent =
@@ -79,6 +98,8 @@ function renderWeather(lat, lon) {
       document.querySelector(".currentUV").textContent =
         "UV Index: " + data.current.uvi;
 
+        
+
       var dtCode = data.current.dt;
       var time = moment.unix(dtCode).format("DD-MM-YYYY");
       document.querySelector(".currentDate").innerHTML = ": " + time;
@@ -86,16 +107,20 @@ function renderWeather(lat, lon) {
       // ====================================================================================================== update to forecast not current days
 
       
-      // var icon = document.createElement('img')
-      // icon.setAttribute('src',`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png` )
-      // document.querySelector('.iconf1').appendChild(icon);
-      // document.querySelector('.tempf1').textContent='Temperature: ' + data.current.temp + ' ℃';
-      // document.querySelector('.windf1').textContent='Windspeed: ' + data.current.wind_speed + 'M/s';
-      // document.querySelector('.humidf1').textContent='Humidity: ' + data.current.humidity + '%';
+      var icon = document.createElement('img')
+      icon.setAttribute('src',`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png` )
+      document.querySelector('.iconf1').removeChild(document.querySelector('.iconf1').getElementsByTagName('img')[0]);
+      document.querySelector('.iconf1').appendChild(icon);
+      document.querySelector('.tempf1').textContent='Temperature: ' + data.current.temp + ' ℃';
+      document.querySelector('.windf1').textContent='Windspeed: ' + data.current.wind_speed + 'M/s';
+      document.querySelector('.humidf1').textContent='Humidity: ' + data.current.humidity + '%';
 
       // ==============================================================================================================================
     });
 }
+
+console.log(localStorage);
+
 
 function clearstorage () {
     localStorage.clear()
