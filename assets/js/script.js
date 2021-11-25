@@ -24,13 +24,25 @@ function searchWeatherTest(location) {
 
       // ============================ storage function
 
-      localStorage.setItem(cityName, cityName)
+      // localStorage.setItem(cityName, cityName)
 
-      // let cityArr = [];
-      // cityArr.push(cityName);
-      // localStorage.setItem(cityName, JSON.stringify(cityName))
-      // let cityArrLs = JSON.parse(localStorage.getItem(cityName))
-      // console.log(localStorage);      
+    //  Alans Method ====================================================================================  
+
+      
+      var localCities = localStorage.getItem('cities');
+
+      if (localCities) { 
+        var parsedLocalCities = JSON.parse(localCities);
+        parsedLocalCities.push(cityName);
+        localStorage.setItem('cities', JSON.stringify(parsedLocalCities))
+      } else {
+        var citiesArr = []
+        citiesArr.push(cityName);
+        localStorage.setItem('cities', JSON.stringify(citiesArr))
+      }
+
+
+      // get item from storage cities - parse it, loop over the array and make the buttons for each item. 
 
 
       // ===============================================================
@@ -39,33 +51,42 @@ function searchWeatherTest(location) {
         var lon = data.coord.lon;
         renderWeather(lat, lon);
         
-        var historyBtn = document.createElement("button");
-        historyBtn.classList.add("place");
-        document.querySelector(".resultscontainer").appendChild(historyBtn);
-        var savedPlace = localStorage.getItem(cityName);
-        historyBtn.textContent = savedPlace;
 
+        // =================================================== my working function
+
+        // var historyBtn = document.createElement("button");
+        // historyBtn.classList.add("place");
+        // document.querySelector(".resultscontainer").appendChild(historyBtn);
+        // var savedPlace = localStorage.getItem(cityName);
+        // historyBtn.textContent = savedPlace;
+
+        // ====================================================== testing below
+
+        JSON.parse(localStorage.getItem(citiesArr));
         
-        
-
-        // ================================================== event listener
-        
-        //  var buttonContent = document.querySelector('.place').innerHTML;
-
-        //  console.log(buttonContent);
-
-      
-
-        historyBtn.addEventListener("click", () => { 
-          localStorage.getItem(cityName) ;
-          renderWeather(lat, lon);
-          var cityName = (document.querySelector(".cityinner").innerHTML =
-          data.name);
-        });
-
-        // ================================================== event listener
-
+        function createbuttonloop() {
+          for (var i = 0; i < citiesArr.length; i++) {
+            var historyBtn = document.createElement("button");
+            historyBtn.classList.add("place");
+            historyBtn.innerHTML = citiesArr[i];
+            document.querySelector(".resultscontainer").appendChild(historyBtn);
+          }
+          historyBtn.addEventListener("click", () => { 
+            localStorage.getItem(cityName) ;
+            renderWeather(lat, lon);
+            var cityName = (document.querySelector(".cityinner").innerHTML =
+            data.name);
+          });
+        }
+        createbuttonloop()
       });
+        
+        // ================================================== event listener
+        
+
+
+        // ================================================== event listener
+
 }
   
   // gets the 5 day fore cast =======================================================================================================
