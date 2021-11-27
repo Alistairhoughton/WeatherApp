@@ -1,99 +1,76 @@
 var apiKey = "7e32574f3f8ef265a11de62bb2b5d0de";
 
+//new function, renders the buttons from local storage on refresh.
+//get cities from local storage.
+//parse cities into an array.
+//call create button loop with parsed cities.
+//call this new fucntion - at top level. 
+
 //gets the current day =============================================================================================================
 
 function searchWeatherTest(location) {
-  var inputArea = document.querySelector("#city-input").value;
-  var cityLocation = inputArea;
-  var searchbtn = document.querySelector("#searchbutton");
-  
-  
+  var cityLocation = document.querySelector("#city-input").value.toLowerCase().trim();
+
   fetch(
     `https://api.openweathermap.org/data/2.5/weather?q=${cityLocation}&units=metric&appid=${apiKey}`
-    )
+  )
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
       console.log("weather object ", data);
-      var cityName = (document.querySelector(".cityinner").innerHTML =
-      data.name);
       
-      
+      document.querySelector(".cityinner").innerHTML = cityLocation;
+      var localCities = localStorage.getItem("cities");
 
-
-      // ============================ storage function
-
-      // localStorage.setItem(cityName, cityName)
-
-    //  Alans Method ====================================================================================  
-
-      
-      var localCities = localStorage.getItem('cities');
-
-      if (localCities) { 
+      if (localCities) {
         var parsedLocalCities = JSON.parse(localCities);
-        parsedLocalCities.push(cityName);
-        localStorage.setItem('cities', JSON.stringify(parsedLocalCities))
+        parsedLocalCities.push({city: cityLocation, coords: data.coord});
+        localStorage.setItem("cities", JSON.stringify(parsedLocalCities));
+        createButtonLoop(parsedLocalCities);
       } else {
-        var citiesArr = []
-        citiesArr.push(cityName);
-        localStorage.setItem('cities', JSON.stringify(citiesArr))
+        var citiesArr = [];
+        citiesArr.push({city: cityLocation, coords: data.coord});
+        localStorage.setItem("cities", JSON.stringify(citiesArr));
+        createButtonLoop(citiesArr);
       }
+      // var lat = data.coord.lat;
+      // var lon = data.coord.lon;
+      renderWeather(cityLocation.trim());
 
-
-      // get item from storage cities - parse it, loop over the array and make the buttons for each item. 
-
-
-      // ===============================================================
       
-        var lat = data.coord.lat;
-        var lon = data.coord.lon;
-        renderWeather(lat, lon);
-        
 
-        // =================================================== my working function
-
-        // var historyBtn = document.createElement("button");
-        // historyBtn.classList.add("place");
-        // document.querySelector(".resultscontainer").appendChild(historyBtn);
-        // var savedPlace = localStorage.getItem(cityName);
-        // historyBtn.textContent = savedPlace;
-
-        // ====================================================== testing below
-
-        JSON.parse(localStorage.getItem(citiesArr));
-        
-        function createbuttonloop() {
-          for (var i = 0; i < citiesArr.length; i++) {
-            var historyBtn = document.createElement("button");
-            historyBtn.classList.add("place");
-            historyBtn.innerHTML = citiesArr[i];
-            document.querySelector(".resultscontainer").appendChild(historyBtn);
-          }
-          historyBtn.addEventListener("click", () => { 
-            localStorage.getItem(cityName) ;
-            renderWeather(lat, lon);
-            var cityName = (document.querySelector(".cityinner").innerHTML =
-            data.name);
-          });
-        }
-        createbuttonloop()
-      });
-        
-        // ================================================== event listener
-        
-
-
-        // ================================================== event listener
-
+    });
 }
-  
-  // gets the 5 day fore cast =======================================================================================================
 
-function renderWeather(lat, lon) {
+
+function resetBtnList () {
+  document.querySelector(".resultscontainer").innerHTML = '';
+}
+
+function createButtonLoop(citiesData) {
+  resetBtnList();
+  for (var i = 0; i < citiesData.length; i++) {
+    var historyBtn = document.createElement("button");
+    historyBtn.classList.add("place");
+    historyBtn.innerHTML = citiesData[i].city;
+    historyBtn.addEventListener("click", (event) => {
+      document.querySelector(".cityinner").innerHTML = event.target.textContent.trim();
+      renderWeather(event.target.textContent.trim().toLowerCase());
+    });
+    document.querySelector(".resultscontainer").appendChild(historyBtn);
+  }
+}
+
+function renderWeather(cityName) {
+  console.log('renderWeather');
+  var localCities = localStorage.getItem("cities");
+  var parsedLocalCities = JSON.parse(localCities);
+  var currentCity = parsedLocalCities.filter((cityObj) => {
+    return cityObj.city === cityName
+  })[0]
   fetch(
-    `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&units=metric&appid=${apiKey}`
+    `https://api.openweathermap.org/data/2.5/onecall?lat=${currentCity.coords.lat}&lon=${currentCity.coords.lon}&exclude=minutely,hourly,alerts&units=metric&appid=${apiKey}`
   )
     .then(function (response) {
       return response.json();
@@ -106,8 +83,12 @@ function renderWeather(lat, lon) {
         "src",
         `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
       );
-      
-      document.querySelector('.currentIcon').removeChild(document.querySelector('.currentIcon').getElementsByTagName('img')[0]);
+
+      document
+        .querySelector(".currentIcon")
+        .removeChild(
+          document.querySelector(".currentIcon").getElementsByTagName("img")[0]
+        );
       document.querySelector(".currentIcon").appendChild(icon);
 
       document.querySelector(".currentTemp").textContent =
@@ -119,22 +100,29 @@ function renderWeather(lat, lon) {
       document.querySelector(".currentUV").textContent =
         "UV Index: " + data.current.uvi;
 
-        
-
       var dtCode = data.current.dt;
       var time = moment.unix(dtCode).format("DD-MM-YYYY");
       document.querySelector(".currentDate").innerHTML = ": " + time;
 
       // ====================================================================================================== update to forecast not current days
 
-      
-      var icon = document.createElement('img')
-      icon.setAttribute('src',`https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png` )
-      document.querySelector('.iconf1').removeChild(document.querySelector('.iconf1').getElementsByTagName('img')[0]);
-      document.querySelector('.iconf1').appendChild(icon);
-      document.querySelector('.tempf1').textContent='Temperature: ' + data.current.temp + ' ℃';
-      document.querySelector('.windf1').textContent='Windspeed: ' + data.current.wind_speed + 'M/s';
-      document.querySelector('.humidf1').textContent='Humidity: ' + data.current.humidity + '%';
+      var icon = document.createElement("img");
+      icon.setAttribute(
+        "src",
+        `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
+      );
+      document
+        .querySelector(".iconf1")
+        .removeChild(
+          document.querySelector(".iconf1").getElementsByTagName("img")[0]
+        );
+      document.querySelector(".iconf1").appendChild(icon);
+      document.querySelector(".tempf1").textContent =
+        "Temperature: " + data.current.temp + " ℃";
+      document.querySelector(".windf1").textContent =
+        "Windspeed: " + data.current.wind_speed + "M/s";
+      document.querySelector(".humidf1").textContent =
+        "Humidity: " + data.current.humidity + "%";
 
       // ==============================================================================================================================
     });
@@ -142,12 +130,12 @@ function renderWeather(lat, lon) {
 
 console.log(localStorage);
 
+function clearstorage() {
+  localStorage.clear();
+  window.location.reload();
+}
 
-function clearstorage () {
-    localStorage.clear()
-    window.location.reload();
-  }
-
-document.querySelector("#searchbutton").addEventListener("click", searchWeatherTest);
-document.querySelector('#clear').addEventListener('click', clearstorage)
-
+document
+  .querySelector("#searchbutton")
+  .addEventListener("click", searchWeatherTest);
+document.querySelector("#clear").addEventListener("click", clearstorage);
