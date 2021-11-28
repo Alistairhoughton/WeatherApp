@@ -6,6 +6,14 @@ var apiKey = "7e32574f3f8ef265a11de62bb2b5d0de";
 //call create button loop with parsed cities.
 //call this new fucntion - at top level.
 
+// render function ===============================================================================================================
+
+function loadrenderbuttons () {
+  localStorage.getItem('cities');
+  var parsedbuttoncities = JSON.parse('cities');
+  createButtonLoop(parsedbuttoncities);
+}
+
 //gets the current day =============================================================================================================
 
 function searchWeatherTest(location) {
@@ -99,6 +107,36 @@ function renderWeather(cityName) {
         "Humidity: " + data.current.humidity + "%";
       document.querySelector(".currentUV").textContent =
         "UV Index: " + data.current.uvi;
+
+      // ============================================================== uvi statement
+    var uvBackground = document.getElementById('uViD')
+    var UvIndex = data.current.uvi
+
+    if (UvIndex <= 2) {
+    uvBackground.classList.add('lowUv')
+    uvBackground.classList.remove('medUv')
+    uvBackground.classList.remove('highUv')
+    }
+
+    else if (UvIndex > 2, UvIndex <= 4) 
+    { uvBackground.classList.add('medUv')
+    uvBackground.classList.remove('lowUv')
+    uvBackground.classList.remove('highUv')
+  }
+     else { uvBackground.classList.add('highUv')
+    uvBackground.classList.remove('medUv')
+    uvBackground.classList.remove('lowUv')
+  };
+
+    // else if (UvIndex > 3, UvIndex <=4) {
+    // UvIndex.classList.add('.medUv')
+    // }
+
+    // else {UvIndex.classList.add('.highUv')}
+
+
+
+      // =========================================================== uvi statement
 
       var dtCode = data.current.dt;
       var time = moment.unix(dtCode).format("DD-MM-YYYY");

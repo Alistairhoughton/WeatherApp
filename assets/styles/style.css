@@ -194,3 +194,23 @@ h1 {
   color: white;
   cursor: pointer;
 }
+
+.currentUV {
+  margin-top: 10px;
+  padding: 3px;
+  border-radius: 10px;
+  text-align: center;
+  background-color: none;
+}
+
+.lowUv {
+  background-color: rgb(46, 182, 46);
+}
+
+.medUv {
+  background-color: orange;
+}
+
+.highUv {
+  background-color: rgb(255, 38, 0);
+}
