@@ -8,9 +8,10 @@ var apiKey = "7e32574f3f8ef265a11de62bb2b5d0de";
 
 // render function ===============================================================================================================
 
-function loadrenderbuttons () {
-  localStorage.getItem('cities');
-  var parsedbuttoncities = JSON.parse('cities');
+window.addEventListener("DOMContentLoaded", loadrenderbuttons);
+function loadrenderbuttons() {
+  var cities = localStorage.getItem("cities");
+  var parsedbuttoncities = JSON.parse(cities);
   createButtonLoop(parsedbuttoncities);
 }
 
@@ -92,9 +93,7 @@ function renderWeather(cityName) {
         `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
       );
 
-      document
-        .querySelector(".currentIcon")
-        .removeChild(
+      document.querySelector(".currentIcon").removeChild(
           document.querySelector(".currentIcon").getElementsByTagName("img")[0]
         );
       document.querySelector(".currentIcon").appendChild(icon);
@@ -109,32 +108,28 @@ function renderWeather(cityName) {
         "UV Index: " + data.current.uvi;
 
       // ============================================================== uvi statement
-    var uvBackground = document.getElementById('uViD')
-    var UvIndex = data.current.uvi
+      var uvBackground = document.getElementById("uViD");
+      var UvIndex = data.current.uvi;
 
-    if (UvIndex <= 2) {
-    uvBackground.classList.add('lowUv')
-    uvBackground.classList.remove('medUv')
-    uvBackground.classList.remove('highUv')
-    }
+      if (UvIndex <= 2) {
+        uvBackground.classList.add("lowUv");
+        uvBackground.classList.remove("medUv");
+        uvBackground.classList.remove("highUv");
+      } else if ((UvIndex > 2, UvIndex <= 4)) {
+        uvBackground.classList.add("medUv");
+        uvBackground.classList.remove("lowUv");
+        uvBackground.classList.remove("highUv");
+      } else {
+        uvBackground.classList.add("highUv");
+        uvBackground.classList.remove("medUv");
+        uvBackground.classList.remove("lowUv");
+      }
 
-    else if (UvIndex > 2, UvIndex <= 4) 
-    { uvBackground.classList.add('medUv')
-    uvBackground.classList.remove('lowUv')
-    uvBackground.classList.remove('highUv')
-  }
-     else { uvBackground.classList.add('highUv')
-    uvBackground.classList.remove('medUv')
-    uvBackground.classList.remove('lowUv')
-  };
+      // else if (UvIndex > 3, UvIndex <=4) {
+      // UvIndex.classList.add('.medUv')
+      // }
 
-    // else if (UvIndex > 3, UvIndex <=4) {
-    // UvIndex.classList.add('.medUv')
-    // }
-
-    // else {UvIndex.classList.add('.highUv')}
-
-
+      // else {UvIndex.classList.add('.highUv')}
 
       // =========================================================== uvi statement
 
