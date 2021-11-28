@@ -63,6 +63,7 @@ h3 {
   flex-direction: row;
   max-width: 1360px;
   margin: 20px;
+  margin-bottom: 36px;
   justify-content: space-between;
   
 }
@@ -86,7 +87,7 @@ h3 {
 }
 
 .listcard {
-  height: 90%;
+  height: 84%;
   padding: 25px;
   border-radius: 25px;
   background-color: rgb(152, 212, 212);
