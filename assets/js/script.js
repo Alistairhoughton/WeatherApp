@@ -105,7 +105,7 @@ function renderWeather(cityName) {
         uvBackground.classList.add("lowUv");
         uvBackground.classList.remove("medUv");
         uvBackground.classList.remove("highUv");
-      } else if (UvIndex > 2, UvIndex <= 4) {
+      } else if ((UvIndex > 2, UvIndex <= 4)) {
         uvBackground.classList.add("medUv");
         uvBackground.classList.remove("lowUv");
         uvBackground.classList.remove("highUv");

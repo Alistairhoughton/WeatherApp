@@ -66,7 +66,6 @@ h3 {
   margin: 20px;
   margin-bottom: 36px;
   justify-content: space-between;
-  
 }
 
 .card {
@@ -205,19 +204,18 @@ h1 {
 }
 
 .lowUv {
-  background-color: #58B54E;
+  background-color: #58b54e;
 }
 
 .medUv {
-  background-color: #F8B44E;
+  background-color: #f8b44e;
 }
 
 .highUv {
-  background-color: #F74F4F;
+  background-color: #f74f4f;
 }
 
 @media only screen and (max-width: 1570px) {
- 
   .maincontainer {
     display: flex;
     flex-direction: row;
@@ -225,8 +223,6 @@ h1 {
     width: 98%;
     height: auto;
     margin: 5px;
-
-    
   }
 
   .resultscontainer {
@@ -238,13 +234,11 @@ h1 {
     width: auto;
   }
 
-
   .pageholder {
     height: auto;
   }
 
   .listcontainer {
-     
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -254,14 +248,13 @@ h1 {
     border-radius: 20px;
     margin: 25px;
     flex-grow: 1;
-    padding-bottom: 50px
-  
+    padding-bottom: 50px;
   }
 
   .sendright {
     width: 98%;
   }
-  
+
   .title {
     padding: 0px;
   }
@@ -271,23 +264,20 @@ h1 {
     flex-direction: row;
   }
 
-.cardholder {
-  
+  .cardholder {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     margin-bottom: 0;
-  
-}
-
+  }
 }
 
 @media only screen and (max-width: 375px) {
   .listcontainer {
     max-width: 288px;
-    padding-bottom: 50px
+    padding-bottom: 50px;
   }
-  .listcard{
+  .listcard {
     max-width: 225px;
   }
   .text-area {
@@ -307,14 +297,15 @@ h1 {
   flex-direction: column;
 }
 
-
 @media only screen and (max-width: 320px) {
-  .listcard {max-width: 180px;}
+  .listcard {
+    max-width: 180px;
+  }
 
   .text-area {
     max-width: 60px;
   }
-  .cardholder{
+  .cardholder {
     margin-bottom: 0;
   }
 }
