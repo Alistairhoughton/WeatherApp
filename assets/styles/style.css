@@ -13,7 +13,7 @@ h3 {
 }
 
 .pageholder {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -22,7 +22,7 @@ h3 {
 .maincontainer {
   display: flex;
   background-color: #0aa3a3;
-  border-radius: 50px;
+  border-radius: 20px;
   margin: auto;
   width: 97%;
   height: 95%;
@@ -60,14 +60,14 @@ h3 {
   display: flex;
   flex-direction: row;
   max-width: 1360px;
-  margin: 20px;
+  margin: 7px;
   justify-content: space-between;
 }
 
 .card {
   background-color: rgb(115, 192, 192);
   max-height: 350px;
-  max-width: 250px;
+  max-width: auto;
   display: flex;
   flex-direction: column;
   padding: 20px;
@@ -204,13 +204,99 @@ h1 {
 }
 
 .lowUv {
-  background-color: rgb(46, 182, 46);
+  background-color: #58B54E;
 }
 
 .medUv {
-  background-color: orange;
+  background-color: #F8B44E;
 }
 
 .highUv {
-  background-color: rgb(255, 38, 0);
+  background-color: #F74F4F;
+}
+
+@media only screen and (max-width: 1570px) {
+ 
+  .maincontainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 98%;
+    height: auto;
+    margin: 5px;
+
+    
+  }
+
+  .resultscontainer {
+    flex-direction: column;
+  }
+
+  .card {
+    margin: 10px;
+    width: auto;
+  }
+
+
+  .pageholder {
+    height: auto;
+  }
+
+  .listcontainer {
+     
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1055px;
+    border-radius: 20px;
+    margin: 25px;
+    flex-grow: 1;
+    padding-bottom: 50px
+  
+  }
+
+  .sendright {
+    width: 98%;
+  }
+  
+  .title {
+    padding: 0px;
+  }
+  .resultscontainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+  }
+
+.cardholder {
+  
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  
+}
+
+}
+
+@media only screen and (max-width: 375px) {
+  .listcontainer {
+    max-width: 288px;
+    padding-bottom: 50px
+  }
+  .listcard{
+    max-width: 225px;
+  }
+  .text-area {
+    max-width: 105px;
+  }
+
+  .maincontainer {
+    margin: 5px;
+  }
+}
+
+.resultscontainer {
+  flex-direction: column;
 }

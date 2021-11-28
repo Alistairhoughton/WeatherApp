@@ -1,21 +1,11 @@
 var apiKey = "7e32574f3f8ef265a11de62bb2b5d0de";
 
-//new function, renders the buttons from local storage on refresh.
-//get cities from local storage.
-//parse cities into an array.
-//call create button loop with parsed cities.
-//call this new fucntion - at top level.
-
-// render function ===============================================================================================================
-
 window.addEventListener("DOMContentLoaded", loadrenderbuttons);
 function loadrenderbuttons() {
   var cities = localStorage.getItem("cities");
   var parsedbuttoncities = JSON.parse(cities);
   createButtonLoop(parsedbuttoncities);
 }
-
-//gets the current day =============================================================================================================
 
 function searchWeatherTest(location) {
   var cityLocation = document
@@ -46,8 +36,6 @@ function searchWeatherTest(location) {
         localStorage.setItem("cities", JSON.stringify(citiesArr));
         createButtonLoop(citiesArr);
       }
-      // var lat = data.coord.lat;
-      // var lon = data.coord.lon;
       renderWeather(cityLocation.trim());
     });
 }
@@ -93,7 +81,9 @@ function renderWeather(cityName) {
         `https://openweathermap.org/img/wn/${data.current.weather[0].icon}.png`
       );
 
-      document.querySelector(".currentIcon").removeChild(
+      document
+        .querySelector(".currentIcon")
+        .removeChild(
           document.querySelector(".currentIcon").getElementsByTagName("img")[0]
         );
       document.querySelector(".currentIcon").appendChild(icon);
@@ -115,7 +105,7 @@ function renderWeather(cityName) {
         uvBackground.classList.add("lowUv");
         uvBackground.classList.remove("medUv");
         uvBackground.classList.remove("highUv");
-      } else if ((UvIndex > 2, UvIndex <= 4)) {
+      } else if (UvIndex > 2, UvIndex <= 4) {
         uvBackground.classList.add("medUv");
         uvBackground.classList.remove("lowUv");
         uvBackground.classList.remove("highUv");
