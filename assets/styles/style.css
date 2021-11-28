@@ -62,6 +62,7 @@ h3 {
   max-width: 1360px;
   margin: 7px;
   justify-content: space-between;
+  margin-left: 20px;
 }
 
 .card {
