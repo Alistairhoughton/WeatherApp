@@ -208,14 +208,40 @@ h1 {
 
 .lowUv {
   background-color: #58b54e;
+  transition: 250ms; 
 }
 
 .medUv {
-  background-color: #f8b44e;
+  animation-name: backgroundColormed;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
 }
 
+@keyframes backgroundColormed {
+  0% {
+    background: #f8b44e;
+  }
+  100% {
+    background: #ffc56d;
+  }
+}
+
+
 .highUv {
-  background-color: #f74f4f;
+  animation-name: backgroundColorhigh;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes backgroundColorhigh {
+  0% {
+    background: #e74f4f;
+  }
+  100% {
+    background: #ff4242;
+  }
 }
 
 @media only screen and (max-width: 1570px) {
