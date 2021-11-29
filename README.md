@@ -10,7 +10,7 @@ I created a weatherapp using HTML, CSS and JS. I imported the data I needed usin
 When you access the app for the first time there is an error because storage will be empty, once you run one seatch and refresh the page that error is no longer there as you have
 a city in storage
 
-![errorcode](https://i.gyazo.com/088d16c7ddf02de22430d9dce39a90bf.png)
+![errorcode](https://i.gyazo.com/c91ada18630f10c498d18ad495714122.png)
 
 ## functionality 
 
