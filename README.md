@@ -7,8 +7,8 @@ I created a weatherapp using HTML, CSS and JS. I imported the data I needed usin
 
 ## Issues
 
-When you access the app for the first time there is an error because storage will be empty, once you run one seatch and refresh the page that error is no longer there as you have
-a city in storage
+When you access the app for the first time there is an error because storage will be empty, once you run one search and refresh the page that error is no longer there as you have
+a city in storage and thus fixing the issue of length. Would be something to fix in the future. 
 
 ![errorcode](https://i.gyazo.com/c91ada18630f10c498d18ad495714122.png)
 
