@@ -1,7 +1,7 @@
 # WeatherApp
 Responsive weatherapp built with CSS and HTML
 
-##about 
+## about 
 
 I created a weatherapp using HTML, CSS and JS. I imported the data I needed using the openweatherAPI. Then rendered it on the page. ranging from temperature to icons and more. 
 
